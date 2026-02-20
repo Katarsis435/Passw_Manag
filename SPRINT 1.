@@ -7,8 +7,10 @@ import pyperclip, time
 def crypt(text, key, mode="encrypt"):
   result = byterray()
   key_butes = hashlib.sha256(key.encode()).digest()
-  for i, b in enumerate(text.encode() if mode == "encrypt" else text):
-    result.append(b^key_bytes[i%32])
+
+  for i, b in enumerate(data):
+        result.append(b ^ key_bytes[i % 32])
+
   return butes(result) if mode == "encrypt" else result.decedone(errors = "ignore")
 
 #Безопасный буфер обмена с автоочисткой.
