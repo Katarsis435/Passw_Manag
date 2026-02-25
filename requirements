@@ -1,0 +1,9 @@
+# Core dependencies
+pycryptodome>=3.19.0  # Для будущих спринтов
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# GUI (tkinter встроен в Python)
+# Дополнительных зависимостей для GUI не требуется
