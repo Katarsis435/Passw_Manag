@@ -137,22 +137,27 @@ cryptosafe-manager/
 │   ├── core/
 │   │   ├── crypto/
 │   │   │   ├── abstract.py       # EncryptionService
-│   │   │   └── placeholder.py    # AES256Placeholder (заглушка)
-│   │   ├── events.py             # Система событий
-│   │   ├── config.py             # Конфигурация
-│   │   └── state_manager.py      # Управление состоянием
+│   │   │   └── placeholder.py    # XOR заглушка (Sprint 1)
+│   │   ├── audit.py              # подписчик событий -> audit_log
+│   │   ├── config.py             # ConfigManager (dev/prod)
+│   │   ├── events.py             # EventBus (sync + async)
+│   │   ├── key_manager.py        # derive_key + заглушки store/load
+│   │   ├── state_manager.py      # состояние (lock/clipboard/idle)
+│   │   └── utils.py              # валидация + secure zeroization
 │   ├── database/
-│   │   ├── models.py             # Модели SQLAlchemy или обычные SQL-модели
-│   │   └── db.py                 # Помощник БД
+│   │   ├── models.py             # dataclasses моделей
+│   │   └── db.py                 # SQLite helper + user_version + pool
 │   └── gui/
-│       ├── main_window.py        # Основной UI
-│       └── widgets/              # Переиспользуемые компоненты
+│       ├── main_window.py        # главное окно + мастер настройки
+│       └── widgets/
+│           ├── password_entry.py # masked entry + show/hide
+│           ├── secure_table.py   # таблица записей
+│           ├── settings_dialog.py# заглушка настроек
+│           └── audit_log_viewer.py # заглушка аудита
 ├── tests/
-│   ├── test_crypto.py
-│   └── test_database.py
-├── README.md
 ├── requirements.txt
-└── .github/workflows/tests.yml
+├── Dockerfile                    # заглушка (Sprint 8)
+└── .github/workflows/tests.yml   # CI тестов
 
 
 
